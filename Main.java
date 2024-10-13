@@ -1,46 +1,33 @@
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner input= new Scanner(System.in);
-        int day, month;
+        int age,tripType;
+        double range;
 
-        System.out.println("------------------");
-        System.out.println("Burç Bulan Program");
-        System.out.println("-------------------");
-        System.out.println("Doğum ayını giriniz:");
-        month= input.nextInt();
-         System.out.println("Doğum gününü giriniz:");
-         day= input.nextInt();
-        System.out.println("-------------------");
-        
-        if(month==3 && day>=21 || month==4 && day<=20){
-            System.out.println("Koç Burcu");
-        } else if (month==4 && day>=21|| month ==5 && day<=21){
-            System.out.println("Boğa Burcu");
-
-        } else if (month== 5 && day>=22|| month==6 && day<=22){
-            System.out.println("İkizler Burcu");
-        } else if (month==6 && day>=23|| month==7 && day<=22) {
-            System.out.println("Yengeç Burcu");
-
-        } else if (month== 7 && day >=23 || month==8 && day<=22) {
-            System.out.println("Aslan Burcu");
-        } else if( month== 8 && day>=23|| month==9 && day<= 22){
-            System.out.println("Başak Burcu");
-        } else if (month==9 && day>=23 || month==10 && day <=22) {
-            System.out.println("Terazi Burcu");
-        } else if (month==10 && day>23|| month== 11 && day<=21) {
-            System.out.println("Akrep Burcu");
-        } else if( month==11 && day>=22|| month== 12 && day<=21){
-            System.out.println("Yay Burcu");
-        } else if (month==12 && day>=22|| month== 1 && day<=21) {
-            System.out.println("Oğlak Burcu");
-        } else if(month== 1 && day >=22 || month== 2 && day <=19){
-            System.out.println("Kova Burcu");
-        } else{
-            System.out.println("Balık Burcu");
+        System.out.print("Please enter range (KM):");
+        range= input.nextDouble();
+        System.out.print("Please enter your age:");
+        age= input.nextInt();
+        System.out.print("Please enter trip type (1:one way OR 2:round trip) ");
+        tripType=input.nextInt();
+        if(range<=0 || age<=0|| tripType!=1 && tripType!=2){
+            System.out.println("You entered wrong info");
         }
-
+        double price= 0.10;
+        double totalPrice= range*price;
+        if(age<12){
+            totalPrice *=0.5;
+        } else if (age>=12 && age<=24){
+            totalPrice *=0.9;
+        }else if( age>=65){
+            totalPrice *=0.7;
+        }
+           if (tripType==2){
+            totalPrice *= 0.8;
+        }
+           System.out.println("Total Flight Price:"+ totalPrice+ "TL");
     }
 }
