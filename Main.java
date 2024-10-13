@@ -1,33 +1,39 @@
-
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner input= new Scanner(System.in);
-        int age,tripType;
-        double range;
-
-        System.out.print("Please enter range (KM):");
-        range= input.nextDouble();
-        System.out.print("Please enter your age:");
-        age= input.nextInt();
-        System.out.print("Please enter trip type (1:one way OR 2:round trip) ");
-        tripType=input.nextInt();
-        if(range<=0 || age<=0|| tripType!=1 && tripType!=2){
-            System.out.println("You entered wrong info");
-        }
-        double price= 0.10;
-        double totalPrice= range*price;
-        if(age<12){
-            totalPrice *=0.5;
-        } else if (age>=12 && age<=24){
-            totalPrice *=0.9;
-        }else if( age>=65){
-            totalPrice *=0.7;
-        }
-           if (tripType==2){
-            totalPrice *= 0.8;
-        }
-           System.out.println("Total Flight Price:"+ totalPrice+ "TL");
+        Scanner scanner= new Scanner(System.in);
+        int birthYear;
+         System.out.println("Please your birth year:");
+         birthYear= scanner.nextInt();
+         String result = "";
+         if(birthYear % 12==0){
+             result="Maymun";
+         } else if (birthYear%12 ==1) {
+             result="Horoz";
+         } else if (birthYear%12==2) {
+             result="Köpek";
+         } else if (birthYear%12 ==3) {
+             result= "Domuz";
+         }else if(birthYear%12 ==4){
+             result="Fare";
+         } else if (birthYear%12==5) {
+             result= "Öküz";
+         } else if (birthYear%12== 6) {
+             result="Kaplan";
+         } else if (birthYear %12==7) {
+             result="Tavşan";
+         } else if (birthYear%12== 8) {
+             result= "Ejderha";
+         } else if (birthYear%12== 9) {
+             result="Yılan";
+         } else if (birthYear%12== 10) {
+             result="At";
+         } else if (birthYear%12==11) {
+             result="Koyun";
+         } else {
+             System.out.println("Wrong Choice!");
+         }
+         System.out.println(result);
     }
 }
